@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { type VariantProps } from "class-variance-authority";
 
-interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'primary';
-  size?: 'default' | 'sm' | 'lg' | 'icon';
+// Use the same variant types as the Button component
+interface AnimatedButtonProps 
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   className?: string;
   children: React.ReactNode;
 }
